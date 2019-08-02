@@ -6,7 +6,7 @@ import {
   createStackNavigator,
   createSwitchNavigator,
 } from "react-navigation";
-import { PRIMARY_COLOR, SECONDARY_COLOR } from "./assets/colors";
+import { PRIMARY_COLOR } from "./assets/colors";
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import SplashScreen from "./screens/SplashScreen";
