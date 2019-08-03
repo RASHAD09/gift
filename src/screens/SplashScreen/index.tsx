@@ -11,7 +11,7 @@ interface Props {
 export default class index extends Component<Props> {
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigation.navigate("login");
+      this.props.navigation.navigate("guest");
     }, 3000);
   }
   render() {

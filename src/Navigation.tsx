@@ -4,18 +4,22 @@ import {
   createBottomTabNavigator,
   createAppContainer,
   createStackNavigator,
-  createSwitchNavigator,
+  createSwitchNavigator
 } from "react-navigation";
 import { PRIMARY_COLOR } from "./assets/colors";
 import Login from "./screens/Login";
 import Home from "./screens/Home";
 import SplashScreen from "./screens/SplashScreen";
+import Explore from "./screens/Explore";
+import Registration from "./screens/Registration";
+import ForgetPass from "./screens/ForgetPass";
+
 const HomeNavigator = createStackNavigator(
   {
-    home: { screen: Home },
+    home: { screen: Home }
   },
   {
-    headerMode: "none",
+    headerMode: "none"
   }
 );
 
@@ -26,14 +30,14 @@ const BottomNavigator = createBottomTabNavigator(
     fav: { screen: Home },
     cart: { screen: Home },
     gift: { screen: Home },
-    categories: { screen: Home },
+    categories: { screen: Home }
   },
   {
     tabBarOptions: {
       activeTintColor: PRIMARY_COLOR,
       inactiveTintColor: "#BDBDBD",
       showLabel: true,
-      style: { backgroundColor: "white" },
+      style: { backgroundColor: "white" }
     },
     defaultNavigationOptions: ({ navigation }: { navigation: any }) => ({
       tabBarIcon: ({ tintColor }) => {
@@ -58,15 +62,25 @@ const BottomNavigator = createBottomTabNavigator(
             style={{ tintColor, width: 25, height: 25 }}
           />
         );
-      },
-    }),
+      }
+    })
   }
 );
-
+const GuestNav = createStackNavigator(
+  {
+    explore: { screen: Explore },
+    registration: { screen: Registration },
+    login: { screen: Login },
+    forgetPass:{screen:ForgetPass}
+  },
+  {
+    headerMode: "none"
+  }
+);
 const AppNavigator = createSwitchNavigator({
   splash: { screen: SplashScreen },
-  login: { screen: Login },
-  app: BottomNavigator,
+  guest: { screen: GuestNav },
+  app: BottomNavigator
 });
 
 export default createAppContainer(AppNavigator);
